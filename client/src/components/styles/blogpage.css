@@ -1,0 +1,156 @@
+:root {
+    --filterSecWidth: 15%;
+}
+
+#blogpage {
+    /* border: 2px solid blue; */
+    display: flex;
+    min-height: 100vh;
+}
+
+/* -----------------------------------------------------Filter sections */
+#filterSec {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: inherit;
+    height: 95%;
+    padding: 20px 0;
+    min-width: var(--filterSecWidth);
+
+
+    border: 2px outset rgba(255, 255, 255, .1);
+    background-color: rgba(255, 255, 255, .8);
+    box-shadow: 0px 0px 20px rgba(255, 167, 167, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+#pulltag {
+    position: fixed;
+    z-index: 100;
+    left: var(--filterSecWidth);
+    top: calc(var(--navbar-height) + 10px);
+    height: 54px;
+    padding: 9px;
+    border: 2px solid black;
+    border-radius: 0 100px 100px 0;
+}
+
+#categoryList {
+    list-style: none;
+}
+
+#filterIcon{
+    display: none;
+}
+
+#filterIcon:hover{
+    transform: scale(1.1);
+}
+
+#filterSec>div{
+    display: flex;
+    flex-direction: column;
+}
+
+#filterSec>button{
+    padding: 5px 20px;
+}
+
+#crossIcon{
+    height: 20px;
+    margin-left: auto;
+    display: none;
+}
+
+#crossIcon:hover{
+    transform: scale(1.1);
+}
+
+/* -----------------------------------------------------Blog sections */
+#blogsSec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin-left: calc(var(--filterSecWidth));
+    width: 100%;
+}
+
+h3 {
+    text-align: center;
+    margin: 10px 0;
+    color: var(--theme-pri);
+}
+
+#blogs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px 50px;
+    /* margin: 0 0 100px; */
+}
+
+
+/*------------------------------------------ Responsiveness */
+@media screen and (max-width : 1200px) {
+    :root {
+        --filterSecWidth: 200px;
+    }
+}
+
+@media screen and (max-width : 800px) {
+    :root {
+        --filterSecWidth: 150px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    #categoryList>li{
+        font-size: 10px;
+    }
+
+    #filterSec {
+        padding: 20px 10px 10vh;
+        display: none;
+        z-index: 200;
+    }
+
+    #filterIcon{
+        display: block;
+        height: 50px;
+        position: fixed;
+        z-index: 100;
+        top: 100px;
+        left: 10px;
+    }
+
+    #blogsSec {
+        margin: 0;
+    }
+
+    #crossIcon{
+        display: block;
+    }
+
+    #blogs {
+        gap: 40px 30px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    #filterIcon{
+        top: 80px;
+    }
+    :root {
+        --filterSecWidth: 50vw;
+    }
+}
